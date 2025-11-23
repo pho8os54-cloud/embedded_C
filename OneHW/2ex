@@ -5,15 +5,15 @@
 int main()
 {
     int i;
-    int Negative_namber;
+    int Negative_number;
     printf("Введите целое отрицательное число: ");
-    scanf("%d",&Negative_namber);
-    if (Negative_namber<0)
+    scanf("%d",&Negative_number);
+    if (Negative_number<0)
     {
-        printf("Двоичное представление числа %d:\n ",Negative_namber);
+        printf("Двоичное представление числа %d:\n ",Negative_number);
         for ( i = 31; i >= 0; i--)
         {
-            if (Negative_namber&(1<<i))
+            if (Negative_number&(1<<i))
             {
                 printf("1");
             }
