@@ -5,15 +5,15 @@
 int main()
 {
     int i;
-    int Positive_namber;
+    int Positive_number;
     printf("Введите целое положительное число: ");
-    scanf("%d",&Positive_namber);
-    if (Positive_namber>0)
+    scanf("%d",&Positive_number);
+    if (Positive_number>0)
     {
-        printf("Двоичное представление числа %d:\n ",Positive_namber);
+        printf("Двоичное представление числа %d:\n ",Positive_number);
         for ( i = 31; i >= 0; i--)
         {
-            if (Positive_namber&(1<<i))
+            if (Positive_number&(1<<i))
                 {
                     printf("1");
                 }
