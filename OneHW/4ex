@@ -1,41 +1,17 @@
 /*Поменять в целом положительном числе (типа int) значение
  третьего байта на введенное пользователем число 
  (изначальное число также вводится с клавиатуры).*/
-
- #include <stdio.h>
- int main()
- {
-    int i;
-    int unsigned P_num;
-    char Rep_num; // т.к. надо заменить только 1 байт.
-    int shift;
-    int rewrite;
-    int reverse_shift;
-    int result_num;
-    printf("Введите целое положительное число: ");
-    scanf("%d",&P_num);  
-    printf("Введите число(0-255), которое хотите вставить в 3 байт изначального числа: ");
-    scanf("%hhd",&Rep_num);
-    shift=P_num>>16;//затираю два крайних байта.
-    //printf("число после сдвига 2 байт влево = %d\n",shift);
-
-    if (shift<Rep_num) //если число меньше, чем 2^(16)
-    {
-        rewrite=shift|Rep_num;
-        //printf("после вставки числа в 3 бит: %d\n",rewrite);
-        reverse_shift=rewrite<<16; //обратный сдвиг на 16 бит(2 байта)
-        result_num=reverse_shift|P_num;
- 
-    }
-    else //если число больше, чем 2^(16) и до 16^(23)
-    {
-        rewrite=shift&Rep_num;
-        //printf("после вставки числа в 3 бит: %d\n",rewrite);
-        reverse_shift=rewrite<<16; //обратный сдвиг на 16 бит(2 байта)
-        result_num=reverse_shift|((P_num<<16)>>16); //затирка 4 и 3 байта, для переноса 1 и 2 байта в ответ.
-        /*printf("reverse_shift=%d\n",reverse_shift);*/
-    }
-    printf("Ответ:%d\n",result_num); 
-
-return 0;
- }
+#include <stdio.h>
+int main() 
+{
+    unsigned int P_num;
+    unsigned char Rep_num;//т.к. надо заменить только 1 байт.
+    printf("Введите целое положительное число : ");
+    scanf("%d", &P_num);  
+    printf("Введите число(0-255) для замены 3-го байта: ");
+    scanf("%hhd", &Rep_num);
+    unsigned int result_num = (P_num & 0xFF00FFFF) | (Rep_num << 16);// Очищаем третий байт и устанавливаем новое значение
+    printf("Исходное число: %d\n", P_num);
+    printf("Ответ: %d\n", result_num);
+    return 0;  
+}
