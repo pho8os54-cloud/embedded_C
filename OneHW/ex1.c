@@ -1,0 +1,29 @@
+#include <stdio.h> // представление целого положительного числа в двоичной системе.
+int main()
+{
+    int i;
+    int Positive_number;
+    printf("Введите целое положительное число: ");
+    scanf("%d",&Positive_number);
+    if (Positive_number>0)
+    {
+        printf("Двоичное представление числа %d:\n ",Positive_number);
+        for ( i = 31; i >= 0; i--)
+        {
+            if (Positive_number&(1<<i)) //задается двоичная маска, равная 1, с помощью которой сравнивается введенное число.
+                {
+                    printf("1");
+                }
+            else
+            {
+                printf("0");
+            }
+        }
+    printf("\n");
+    }
+    else
+    {
+        printf("Введите положительное число!!!\n");
+    }
+return 0; 
+}
