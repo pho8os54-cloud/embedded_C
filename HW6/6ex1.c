@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define K 50
+#define K 10
 
 struct abonent//структура абонента(Имя,Фамилия,телефон)
 {
